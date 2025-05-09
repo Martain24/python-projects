@@ -22,8 +22,8 @@ def get_integer_in_range_from_user(query: str, min_val: int = 0, max_val: int = 
 def get_response_from_user_in_list(query: str, valid_responses: list[str]) -> str:
     clean_valid_responses = [response.lower().strip() for response in valid_responses]
     while True:
-        user_response = input(query).lower().strip()
-        if user_response in clean_valid_responses:
+        user_response = input(query)
+        if user_response.lower().strip() in clean_valid_responses:
             return user_response
         else:
             print(f"> Respuesta no reconocida. Las opciones válidas son: {valid_responses}.")

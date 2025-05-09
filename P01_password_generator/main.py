@@ -21,16 +21,16 @@ def password_generator():
     )
 
     # Obtener lista de caracteres que podrá contener la contraseña
-    full_list_of_chars = list(string.ascii_lowercase)
+    all_valid_chars = string.ascii_lowercase
     if with_capital_letters:
-        full_list_of_chars += list(string.ascii_uppercase)
+        all_valid_chars += string.ascii_uppercase
     if with_numbers:
-        full_list_of_chars += list(string.digits)
+        all_valid_chars += string.digits
     if with_symbols:
-        full_list_of_chars += list(string.punctuation)
+        all_valid_chars += string.punctuation
 
     # Generar la contraseña y mostrarla en pantalla
-    safe_password = ''.join(random.choices(full_list_of_chars, k=password_length))
+    safe_password = ''.join(random.choices(all_valid_chars, k=password_length))
     print(f"\nContraseña generada: {safe_password}")
 
     # Proceso de guardado en .txt

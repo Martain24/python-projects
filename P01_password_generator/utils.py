@@ -20,13 +20,18 @@ def get_integer_in_range_from_user(query: str, min_val: int = 0, max_val: int = 
 
 
 def get_response_from_user_in_list(query: str, valid_responses: list[str]) -> str:
-    clean_valid_responses = [response.lower().strip() for response in valid_responses]
     while True:
         user_response = input(query)
-        if user_response.lower().strip() in clean_valid_responses:
-            return user_response
+        user_response_inside_list = next(
+            filter(
+                lambda response: response.lower().strip() == user_response.lower().strip(),
+                valid_responses
+            ), None
+        )
+        if user_response_inside_list is None:
+            print(f"> Respuesta no válida. Las opciones válidas son: {valid_responses}.")
         else:
-            print(f"> Respuesta no reconocida. Las opciones válidas son: {valid_responses}.")
+            return user_response_inside_list
 
 
 def get_true_or_false_from_user(query: str, true_str: str, false_str: str) -> bool:

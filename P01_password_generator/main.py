@@ -30,7 +30,7 @@ def password_generator():
         all_valid_chars += string.punctuation
 
     # Generar la contraseña y mostrarla en pantalla
-    safe_password = ''.join(random.choices(all_valid_chars, k=password_length))
+    safe_password = "".join(random.choices(all_valid_chars, k=password_length))
     print(f"\nContraseña generada: {safe_password}")
 
     # Proceso de guardado en .txt
